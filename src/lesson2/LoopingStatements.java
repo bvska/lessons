@@ -29,8 +29,12 @@ public class LoopingStatements {
         // вывести на экран числа из отрезка [55;78]
         int n = 55;
         while (n <= 78) {
+            // либо:
             System.out.println("n = " + n++);
             // n++;
+            // либо:
+            System.out.println("n = " + n);
+             n++;
         }
 
         /*пользователь вводит с клавиатуры целое число
