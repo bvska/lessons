@@ -1,6 +1,13 @@
 package com.ifmo.jjd.lesson7;
 
-public class Unit {
+// класс Unit имплементирует интерфейс RestAble, соответсвенно обязан
+// реализовать все методы без реализации данного интерфейса,
+// либо класс дб abstract
+
+// abstract класс могут содержать методы без реализации
+// abstract класс могут содержать методы с реализацией
+// на основе abstract класса нельзя создать объект (new Unit())
+abstract public class Unit implements RestAble{
     protected int healthPoints;
     protected int agilityPoints;
 

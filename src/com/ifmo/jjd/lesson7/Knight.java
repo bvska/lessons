@@ -7,3 +7,4 @@ public class Knight extends BattleUnit{
         super(healthPoints, agilityPoints, attackPoints);
     }
 }
+

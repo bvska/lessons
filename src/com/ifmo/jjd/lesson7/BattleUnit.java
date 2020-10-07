@@ -7,7 +7,9 @@ package com.ifmo.jjd.lesson7;
 // Дочерний класс получает доступ ко всем доступным свойствам
 // и методам родительского класса
 
-public class BattleUnit extends Unit{
+abstract public class BattleUnit
+        extends Unit
+        implements AttackAble{
     protected int attackPoints;
 
     public BattleUnit(int healthPoints, int agilityPoints, int attackPoints) {
@@ -17,4 +19,11 @@ public class BattleUnit extends Unit{
         this.attackPoints = attackPoints;
     }
 
+    // класс BattleUnit реализует (имплементирует) интерфейс
+    // RestAble и AttackAble, в которых есть методы run с реализацией
+    // В такой ситуации мы обязаны явно указать, какой метод выбрать
+    @Override
+    public void run() {
+        System.out.println("Реализация run BattleUnit");
+    }
 }
