@@ -11,7 +11,7 @@ abstract public class Unit implements RestAble{
     protected int healthPoints;
     protected int agilityPoints;
 
-    protected int maxHealth;
+    protected final int maxHealth;
 
     public Unit(int healthPoints, int agilityPoints) {
         if (healthPoints <= 0 || agilityPoints <= 0)
@@ -39,3 +39,5 @@ abstract public class Unit implements RestAble{
         return healthPoints > 0;
     }
 }
+
+

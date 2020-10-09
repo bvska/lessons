@@ -2,9 +2,48 @@ package com.ifmo.jjd.lesson7;
 
 public class Application {
     public static void main(String[] args) {
+        King king1 = new King(100, 10);
+        King king2 = new King(100, 15);
 
+        king1.generateArmy();
+        king2.generateArmy();
+
+        king1.startAttack(king2);
+        king2.startAttack(king1);
+
+
+        System.out.println(king1.getAttackResult());
+        System.out.println(king2.getAttackResult());
+
+        king1.addUnits();
+        System.out.println(king1.getAttackResult());
     }
 }
+
+
+class School {
+    private Director director;
+
+    public School(Director director) {
+        this.director = director;
+    }
+
+    public School(String name) {
+        this.director = new Director(name);
+    }
+}
+class Director {
+    private String name;
+
+    public Director(String name) {
+        this.name = name;
+    }
+}
+
+
+
+
+
 
 /* Все юниты обладают следующими характеристиками: очки здоровья, очки ловкости
  * Все юниты имеют возможность восполнять очки здоровья во время отдыха (каждый тип юнита делает это по своему)

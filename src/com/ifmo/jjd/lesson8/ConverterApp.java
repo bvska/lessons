@@ -3,12 +3,17 @@ package com.ifmo.jjd.lesson8;
 public class ConverterApp {
     public static void main(String[] args) {
         IConverter converter = new FConverter();
+        // какие методы будут доступны
+
 
         FConverter fConverter = new FConverter();
+        // какие методы будут доступны
         KConverter kConverter = new KConverter();
+        // какие методы будут доступны
 
         IConverter[] converters = {converter, fConverter, kConverter};
         for (IConverter iConverter : converters) {
+            // какие методы будут доступны
 
         }
     }

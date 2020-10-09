@@ -8,10 +8,10 @@ public class Infantry extends BattleUnit{
     // реализация метода attack(BattleUnit unit) интерфейса AttackAble
     @Override
     public void attack(BattleUnit unit) {
-        // 1 если this жив и ловкость unit меньше this:
-        // unit.health -= this.attack
-        // 2 если unit жив и его ловкость больше this:
-        // this.health -= unit.attack
+        if (this.isAlive() && unit.isAlive() && this.agilityPoints >= unit.agilityPoints)
+            unit.minusHealth(this.attackPoints);
+        if (unit.isAlive() && this.isAlive() && unit.agilityPoints >= this.agilityPoints)
+            this.minusHealth(unit.attackPoints);
     }
     // реализация метода rest() интерфейса RestAble
     @Override
@@ -19,3 +19,6 @@ public class Infantry extends BattleUnit{
         this.plusHealth(2);
     }
 }
+
+
+
