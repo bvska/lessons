@@ -1,9 +1,11 @@
 package com.ifmo.jjd.lesson9;
 
+import java.util.Objects;
+
 public class Book {
-    private String title;
-    private int pageCount;
-    private Author author;
+    protected String title;
+    protected int pageCount;
+    protected Author author;
 
     public Book(String title, int pageCount) {
         this.title = title;
@@ -15,6 +17,7 @@ public class Book {
     }
 
     public void setAuthor(Author author) {
+        Objects.requireNonNull(author, "author не должен быть null");
         this.author = author;
     }
 
@@ -24,5 +27,18 @@ public class Book {
 
     public int getPageCount() {
         return pageCount;
+    }
+
+
+
+
+
+    @Override
+    public String toString() {
+        return "Book{" +
+                "title='" + title + '\'' +
+                ", pageCount=" + pageCount +
+                ", author=" + author +
+                '}';
     }
 }
