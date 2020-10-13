@@ -38,7 +38,7 @@ public class Book {
         return "Book{" +
                 "title='" + title + '\'' +
                 ", pageCount=" + pageCount +
-                ", author=" + author +
+                ", author=" + author + // если toString не переопределен в классе Author, получим: имя класса + hashCode
                 '}';
     }
 }

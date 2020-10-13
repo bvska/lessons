@@ -46,7 +46,7 @@ public class ColouringBook extends Book{
                 "picsCount=" + picsCount + '\'' +
                 "pageCount=" + getPageCount() + '\'' +
                 "title=" + getTitle() + '\'' +
-                "author=" + getAuthor() +
+                "author=" + getAuthor() + // // если toString не переопределен в классе Author, получим: имя класса + hashCode
                 '}';
     }
 }
