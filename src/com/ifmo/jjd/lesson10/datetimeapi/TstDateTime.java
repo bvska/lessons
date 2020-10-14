@@ -35,7 +35,7 @@ public class TstDateTime {
 //        DateTimeExample.getLocalDateTimeDescription();
 
         // работа с временными зонами ZonedDateTime (примеры):
-//        ZonedDateTimeExample.getZonedDescription();
+        ZonedDateTimeExample.getZonedDescription();
 
     }
 }

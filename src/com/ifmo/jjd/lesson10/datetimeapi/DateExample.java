@@ -98,10 +98,12 @@ public class DateExample {
 
         // для вывода в желаемом формате необходимо использовать DateTimeFormatter
         // устанавливаем шаблон, по которому дата будет преобразована к строке
-        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd/MM/yyг");
+        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd/MM/yyг.");
 
         // вызов метода format для форматированного вывода
         String dateToStr = formatter.format(dateNow);
         System.out.println("dateToStr " + dateToStr);
+
+
     }
 }

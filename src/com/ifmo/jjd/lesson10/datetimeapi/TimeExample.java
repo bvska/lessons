@@ -14,11 +14,12 @@ public class TimeExample {
         System.out.println("текущее время " + currentTime);
 
         // Установка определенного времени
-        LocalTime someTime = LocalTime.of(20, 30, 10);
+        LocalTime someTime = LocalTime.of(20, 50);
+        someTime = LocalTime.of(20, 50, 44);
         System.out.println("someTime " + someTime);
 
         // Получение времени из строки
-        String strWithTime = "23:56:05"; //hour-minute-second
+        String strWithTime = "23:56:05"; //hour:minute:second
         LocalTime parseTime = LocalTime.parse(strWithTime);
         System.out.println("объект LocalTime из строки " + parseTime);
         // По-умолчанию метод parse() может создать объект LocalTime из строки в формате HH:mm:ss,

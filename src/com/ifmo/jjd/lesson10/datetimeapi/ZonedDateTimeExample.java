@@ -28,11 +28,12 @@ public class ZonedDateTimeExample {
         ZonedDateTime ny = msk.withZoneSameInstant(ZoneId.of("America/New_York"));
         System.out.println("в Нью-Йорке сейчас " + formatter.format(ny)); // в Нью-Йорке сейчас
 
+
         // получить зону можно следующим образом
         System.out.println(ny.getZone().getId());
 
         // с ZonedDateTime можно работать, как с LocalDateTime, например:
-        System.out.println(ny.plusHours(8).plusMinutes(30).format(formatter));
+        System.out.println(ny.plusHours(8).plusMinutes(30));
 
     }
 }

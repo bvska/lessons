@@ -5,7 +5,10 @@ import java.time.format.DateTimeFormatter;
 import java.time.temporal.ChronoUnit;
 import java.time.temporal.TemporalAdjusters;
 
+// статический импорт статического метода lastDayOfMonth из класса TemporalAdjusters позволит
+// вызвать метод без обращения к классу
 import static java.time.temporal.TemporalAdjusters.lastDayOfMonth;
+import static java.time.temporal.TemporalAdjusters.*;
 
 public class DateTimeExample {
     public static void getLocalDateTimeDescription(){
@@ -99,13 +102,25 @@ public class DateTimeExample {
         System.out.println(Month.APRIL); // месяцы
         System.out.println(DayOfWeek.SATURDAY); // дни недели
         System.out.println(LocalDateTime.now().getDayOfWeek());
+        System.out.println(LocalDateTime.now().plus(45, ChronoUnit.CENTURIES));
+        // System.out.println(LocalDateTime.now().plus(Period.ofWeeks(5)));
+        System.out.println(LocalDateTime.now().minus(some.getDayOfMonth(), ChronoUnit.MONTHS));
+        // System.out.println(LocalDateTime.now().minus(Duration.ofDays(4)));
+
         System.out.println(MonthDay.from(LocalDateTime.now()));
         System.out.println(DayOfWeek.from(LocalDateTime.now()));
+
+        // TemporalAdjuster adjuster
         System.out.println(LocalDateTime.now().with(TemporalAdjusters.next(DayOfWeek.SATURDAY)));
+        System.out.println(LocalDateTime.now().with(LocalDateTime.of(2020, 12, 12, 6, 20)));
         System.out.println(LocalDateTime.now().with(TemporalAdjusters.previous(DayOfWeek.MONDAY)));
+        // статический импорт позволит вызвать метод без обращения к классу, те вместо
+        System.out.println(LocalDateTime.now().with(TemporalAdjusters.lastDayOfMonth()));
+        // можно обратиться
         System.out.println(LocalDateTime.now().with(lastDayOfMonth()));
 
-
+        System.out.println(LocalDateTime.now().toLocalDate());
+        System.out.println(LocalDateTime.now().toLocalTime());
 
     }
 }
