@@ -166,7 +166,9 @@ PS: вместо текстовых  ответов ДА/НЕТ, использ�
 ### Занятие 9
 [Методы toString, clone, hashCode, equals класса Object](src/com/ifmo/jjd/lesson9)
 
-
+### Занятие 10
+1. [Дата и время. Date и Calendar](src/com/ifmo/jjd/lesson10/calendar)
+2. [Дата и время. DateTime API](src/com/ifmo/jjd/lesson10/datetimeapi)
 
 
 ### Список книг
