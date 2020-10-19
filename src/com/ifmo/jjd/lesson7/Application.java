@@ -21,30 +21,6 @@ public class Application {
 }
 
 
-class School {
-    private Director director;
-
-    public School(Director director) {
-        this.director = director;
-    }
-
-    public School(String name) {
-        this.director = new Director(name);
-    }
-}
-class Director {
-    private String name;
-
-    public Director(String name) {
-        this.name = name;
-    }
-}
-
-
-
-
-
-
 /* Все юниты обладают следующими характеристиками: очки здоровья, очки ловкости
  * Все юниты имеют возможность восполнять очки здоровья во время отдыха (каждый тип юнита делает это по своему)
  * */

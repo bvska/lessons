@@ -112,7 +112,7 @@ public class DateTimeExample {
 
         // TemporalAdjuster adjuster
         System.out.println(LocalDateTime.now().with(TemporalAdjusters.next(DayOfWeek.SATURDAY)));
-        System.out.println(LocalDateTime.now().with(LocalDateTime.of(2020, 12, 12, 6, 20)));
+
         System.out.println(LocalDateTime.now().with(TemporalAdjusters.previous(DayOfWeek.MONDAY)));
         // статический импорт позволит вызвать метод без обращения к классу, те вместо
         System.out.println(LocalDateTime.now().with(TemporalAdjusters.lastDayOfMonth()));
@@ -121,6 +121,5 @@ public class DateTimeExample {
 
         System.out.println(LocalDateTime.now().toLocalDate());
         System.out.println(LocalDateTime.now().toLocalTime());
-
     }
 }
