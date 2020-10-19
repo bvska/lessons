@@ -3,18 +3,24 @@ package com.ifmo.jjd.objectsclasses;
 public class Bucket {
     private Flower buk[] = new Flower[5];
 
+    private int sum;
+
     public void addFlower(Flower flower){
         for (int i = 0; i < buk.length; i++) {
-            if (buk[i] == null) buk[i] = flower;
+            if (buk[i] == null) {
+                buk[i] = flower;
+                sum += flower.getPrice();
+                break; // или return
+            };
         }
     }
 
     public int getPrice(){
-        int sum = 0;
-        for (int i = 0; i < buk.length; i++) {
-            if (buk[i] != null)
-                sum += buk[i].getPrice();
-        }
+//        int sum = 0;
+//        for (int i = 0; i < buk.length; i++) {
+//            if (buk[i] != null)
+//                sum += buk[i].getPrice();
+//        }
         return sum;
     }
     private static int count = 0;

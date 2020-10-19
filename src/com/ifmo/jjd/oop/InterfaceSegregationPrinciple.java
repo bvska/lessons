@@ -5,6 +5,8 @@ public class InterfaceSegregationPrinciple {
         Connection connection = new Connection();
         connection.open();
         connection.close();
+        Connection connection1 = (Connection) connection.getBetterCopy();
+        connection1.open();
 
         BaseUnit baseUnit = new BaseUnit(23, 66);
         BaseUnit betterCopy = baseUnit.getBetterCopy();

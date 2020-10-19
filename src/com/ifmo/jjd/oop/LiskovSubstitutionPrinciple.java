@@ -52,7 +52,7 @@ class Human {
                 System.out.println(animal.saySomething());
                 animals[i] = animal;
                 return;
-            };
+            }
         }
     }
 }

@@ -3,7 +3,7 @@ package com.ifmo.jjd.oop;
 public class OpenClosedPrinciple {
     public static void main(String[] args) {
         Mouse mouse = new Mouse("Mikey", 20);
-        IHandler handler = IHandler.getInstance("json");
+        IHandler handler = Handler.getInstance("bin");
         handler.write(mouse);
         Mouse mouseFromFile = handler.read();
     }
@@ -27,7 +27,7 @@ class Mouse {
     }
 }
 
-class Handler{
+abstract class Handler{
     private String file;
 
     public Handler(String file) {
@@ -50,11 +50,6 @@ class Handler{
         return null;
     }
 
-}
-
-interface IHandler {
-    void write(Mouse mouse);
-    Mouse read();
     static IHandler getInstance(String ext){
         IHandler handler = null;
         switch (ext){
@@ -67,6 +62,13 @@ interface IHandler {
         }
         return handler;
     }
+
+}
+
+
+interface IHandler {
+    void write(Mouse mouse);
+    Mouse read();
 }
 class JsonHandler extends Handler implements IHandler{
 
@@ -100,6 +102,19 @@ class BinHandler extends Handler implements IHandler {
     @Override
     public Mouse read() {
         System.out.println("Получили mouse из bin файла");
+        return null;
+    }
+}
+
+class TxtHandler implements IHandler {
+
+    @Override
+    public void write(Mouse mouse) {
+
+    }
+
+    @Override
+    public Mouse read() {
         return null;
     }
 }
