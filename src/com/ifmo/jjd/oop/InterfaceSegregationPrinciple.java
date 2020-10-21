@@ -1,5 +1,7 @@
 package com.ifmo.jjd.oop;
 
+import java.util.Objects;
+
 public class InterfaceSegregationPrinciple {
     public static void main(String[] args) {
         Connection connection = new Connection();
