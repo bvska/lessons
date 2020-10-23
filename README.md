@@ -222,6 +222,13 @@ enum Status с необходимыми константами нужно соз
 и тд         
 
 
+Занятие 13 [Generic](src/com/ifmo/jjd/lesson13/generic)
+1. [Типизированные методы (Generic Methods)](src/com/ifmo/jjd/lesson13/generic/methods)
+2. [Типизированные классы (Generic Types)](src/com/ifmo/jjd/lesson13/generic/types)
+3. [Ограничения (Bounded Type Parameters)](src/com/ifmo/jjd/lesson13/generic/bounded/type/parameters)
+4. [Ограничения (Wildcard)](src/com/ifmo/jjd/lesson13/generic/wildcard)
+
+
 
 ## Курсовые
 1. [Базовый синтаксис и семантика языка](exams/first-fitness.txt) срок сдачи 19 октября 2020 до 18:40
