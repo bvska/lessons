@@ -1,9 +1,23 @@
 package com.ifmo.jjd.lesson13.generic.types;
 
-public class User {
+// в <> указываем, что класс будет использовать generic тип
+// вместо T может быть любая буква или их сочетание
+public class User<T> {
+    // тип данных поля будет задан в мосент создания объекта
+    // тип T ничем не ограничен и будет скомпилирован в Object, поэтому
+    // внутри класса полю id будут доступны только методы Object
+    private T id;
 
     private String login;
     private String pwd;
+
+    public T getId(){
+        return id;
+    }
+
+    public void setId(T id){
+        this.id = id;
+    }
 
 
     public String getLogin() {
