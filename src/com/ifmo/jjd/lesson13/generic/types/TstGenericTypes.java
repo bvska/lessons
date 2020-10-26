@@ -41,10 +41,9 @@ public class TstGenericTypes {
 
         User<Number> numberUser = new User<>();
         numberUser.setLogin("num");
-        numberUser.setId(35);
+        numberUser.setId(35.9);
 
         PairContainer<String, User<Number>> container4 =
                 new PairContainer<>("num", numberUser);
-
     }
 }
