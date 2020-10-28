@@ -28,6 +28,16 @@ public class TstWildCards<T> {
         PairContainer<Integer, Infantry> c2 = new PairContainer<>(1, infantry);
 
         copyValueTwo(c2, c1);
+
+
+        PairContainer<? extends Number, Animal> pair = new PairContainer<>(1, animal);
+        pair.setKey(null);
+        Number pairKey = pair.getKey();
+
+        PairContainer<? super Number, Animal> pair2 = new PairContainer<>(1, animal);
+        Object n = pair2.getKey();
+        // Double pair2Key = (Double) pair2.getKey(); // ClassCastEx
+        pair2.setKey(4.5);
     }
     // метод принимает на вход
     // from: объет типа PairContainer,
