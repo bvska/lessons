@@ -238,7 +238,11 @@ enum Status с необходимыми константами нужно соз
 1. [Задания в пакете lesson15/hw](src/com/ifmo/jjd/lesson15/hw)
 
 
+Занятие 16
+1. [Мапы](src/com/ifmo/jjd/lesson16)
 
+### Домашнее задание:
+1. [Задания в пакете lesson16/hw](src/com/ifmo/jjd/lesson16/hw)
 
 
 ## Курсовые
