@@ -3,6 +3,7 @@ package com.ifmo.jjd.lesson16.hw;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 public class MapTask {
     public static void main(String[] args) {
@@ -21,8 +22,11 @@ public class MapTask {
 
 
 
-        // TODO:: дан список слов (words). Написать метод, который будет возвращать количество одинаковых слов с списке
-        //  в виде Map<String, Integer>, где String - слово и Integer - количество повторений
+        // TODO:: дан список слов (words).
+        //  Написать метод, который будет возвращать количество
+        //  одинаковых слов с списке
+        //  в виде Map<String, Integer>,
+        //  где String - слово и Integer - количество повторений
 
         List<String> words = new ArrayList<>();
         words.add("may");
@@ -39,8 +43,9 @@ public class MapTask {
 
 
         // TODO:: дана мапа (customerMap).
-        //  Написать метод, который принимает на вход агрументы int from и int to и возвращает новую мапу,
-        //  в которую войдут все покупатели, возраст которых находится в диапазоне [from, to)
+        //  Написать метод, который принимает на вход агрументы int from и int to и возвращает
+        //  новую мапу, в которую войдут все покупатели,
+        //  возраст которых находится в диапазоне [from, to)
 
         HashMap<String, Customer> customerMap = new HashMap<>();
         customerMap.put("1", new Customer("Павел", "1", 23));
@@ -65,7 +70,20 @@ public class MapTask {
                 "uncover many web sites still uncover in their infancy Various versions uncover have evolved over the years uncover sometimes by accident" +
                 " sometimes on purpose injected humour and the like";
 
+    }
 
-
+    public static HashMap<String, Customer> getByAge(
+            HashMap<String, Customer> map,
+            int from, int to
+            )
+    {
+        HashMap<String, Customer> newMap = new HashMap<>();
+        for (Map.Entry<String, Customer> entry: map.entrySet()) {
+            if (entry.getValue().getAge() >= from &&
+            entry.getValue().getAge() < to) {
+                newMap.put(entry.getKey(), entry.getValue());
+            }
+        }
+        return newMap;
     }
 }

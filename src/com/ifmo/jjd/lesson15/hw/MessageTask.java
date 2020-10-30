@@ -13,7 +13,7 @@ public class MessageTask {
         //  Ответ в консоль
     }
 
-    private static void uniqueMessageCount(List<Message> messageList) {
+    public static void uniqueMessageCount(List<Message> messageList) {
         // TODO: Подсчитать количество уникальных сообщений
         //  Ответ в консоль
     }
