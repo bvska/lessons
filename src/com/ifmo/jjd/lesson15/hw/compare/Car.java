@@ -1,4 +1,4 @@
-package com.ifmo.jjd.lesson15.compare;
+package com.ifmo.jjd.lesson15.hw.compare;
 
 public class Car {
     private String color;
