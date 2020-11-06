@@ -1,9 +1,6 @@
 package com.ifmo.jjd.lesson16.hw;
 
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
 
 public class MapTask {
     public static void main(String[] args) {
@@ -18,6 +15,8 @@ public class MapTask {
         firstTaskMap.put("fgh", "Магадан");
 
         String city = "Тверь";
+
+
 
 
 
@@ -42,6 +41,8 @@ public class MapTask {
 
 
 
+
+
         // TODO:: дана мапа (customerMap).
         //  Написать метод, который принимает на вход агрументы int from и int to и возвращает
         //  новую мапу, в которую войдут все покупатели,
@@ -56,9 +57,14 @@ public class MapTask {
 
 
         // TODO:: Задания по тексту (text). На каждый пункт - минимум один метод:
-        //  1. написать метод, принимающий на вход слово и возвращающий частоту встречаемости данного слова в тексте
-        //  2. написать метод, который собирает все слова в группы по количеству букв:
-        //  например, в одну группу попадут слова: 3 - [the, war, jar, get, met...], в другую 2 - [on, up, no, of...]
+        //  1. написать метод, принимающий на вход слово и возвращающий частоту
+        //  встречаемости данного слова в тексте
+        //  2. написать метод, который собирает все слова в группы
+        //  по количеству букв:
+        //  например, в одну группу попадут слова:
+        //  3 - [the, war, jar, get, met...],
+        //  в другую 2 - [on, up, no, of...]
+        // Map<Integer, ArrayList>
         //  3. написать метод, который выводит в консоль топ 10 самых частых слов
         //  4. Вывести частоту встречаемости букв анг алфавита в данном тексте. Вывести в процентах для каждой буквы
 
@@ -69,6 +75,8 @@ public class MapTask {
                 "packages and web page editors now use Lorem Ipsum as their default model text and a search for lorem ipsum will " +
                 "uncover many web sites still uncover in their infancy Various versions uncover have evolved over the years uncover sometimes by accident" +
                 " sometimes on purpose injected humour and the like";
+
+        Map<Integer, Set<String>> map = getGroups(text);
 
     }
 
@@ -85,5 +93,47 @@ public class MapTask {
             }
         }
         return newMap;
+    }
+
+
+    public static  List<String> getLogins(
+            HashMap<String, String> map, String city) {
+        List<String> strings = new ArrayList<>();
+        for (Map.Entry<String, String> entry: map.entrySet()){
+            if (entry.getValue().equals(city)) {
+                strings.add(entry.getKey());
+            }
+        }
+        return strings;
+    }
+
+    private static Map<Integer, Set<String>> getGroups(String text){
+        Map<Integer, Set<String>> map = new TreeMap<>();
+        String[] words = text.trim().toLowerCase().split(" ");
+        for (String word : words) {
+            Set<String> strings =
+                    map.getOrDefault(word.length(), new HashSet<>());
+            strings.add(word);
+            map.put(words.length, strings);
+        }
+        return map;
+    }
+
+    private static void printTopTen(String text){
+        String[] words = text.trim().toLowerCase().split(" ");
+        HashMap<String, Integer> hashMap = new HashMap<>();
+        for (String word : words) {
+            hashMap.put(word, hashMap.getOrDefault(word, 0) + 1);
+        }
+        TreeSet<Map.Entry<String, Integer>> entries = new TreeSet<>(new ValueComparator());
+        entries.addAll(hashMap.entrySet());
+    }
+}
+
+class ValueComparator implements Comparator<Map.Entry<String, Integer>>{
+    @Override
+    public int compare(Map.Entry<String, Integer> o1, Map.Entry<String, Integer> o2) {
+        if (o1.getValue().equals(o2.getValue())) return -1;
+        return Integer.compare(o2.getValue(), o1.getValue());
     }
 }

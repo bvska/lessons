@@ -117,18 +117,32 @@ public class ReflectionLesson {
 
 
     }
-
+    // A {
+    //    @Ex B b
+    // }
+    // B {
+    //    A a
+    // }
     public static String toString(Object o){
+        StringBuilder stringBuilder = new StringBuilder();
+        // проверка o на null
+        // проверка o на примитив, String, Обертки
+        // -> stringBuilder.append(o);
+        // проверка на массив, перебор
+        // package java.lang.reflect Array
+        // fori от 0 до getLength
+        // Array.getLength(o)
+        // Array.get(o, i)
+
         Field[] fields = o.getClass().getDeclaredFields();
+        // перебор fields
+        // toString(field.get(o))
+        // -> stringBuilder
+        //      .append(fields.getName())
+        //      .append(": ")
+        //      .append(toString(field.get(o)));
 
-        // имя поля + ": " + значение;
-        // Integer i = 6; // 6
-        // long l = 78; // 78
-        // Book b; // hashCode
-
-        // String s = "str"; // str
-        // int[] ints = {3, 4, 5} // hashCode
-        return null;
+        return stringBuilder.toString();
     }
 }
 interface T extends F {}
