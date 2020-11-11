@@ -6,8 +6,13 @@ public class Pupil extends Human implements LearnAble {
     private Group group;
     private int level;
     private LocalDate lastLesson;
-    private final String info = "Ученик";
+    transient private final String info = "Ученик";
 
+    // уникальный идентификатор версии сериализованного объекта,
+    // записывается в поток при сериализации.
+    // При десериализации сравнивается значение этого поля
+    // с имеющимся у локального класса
+    private static final long serialVersionUID = 1L;
 
     public Group getGroup() {
         return group;
@@ -64,3 +69,51 @@ public class Pupil extends Human implements LearnAble {
                 '}';
     }
 }
+
+
+class Cat {
+    private int age;
+
+
+    private String name;
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public int getAge() {
+        return age;
+    }
+
+    public void setAge(int age) {
+        this.age = age;
+    }
+}
+
+// cat(age), версия 2  -> последовательность байт -> файл
+// изменение класса в программе -> изменение версии, 3
+// файл -> последовательность байт(2) -> cat(age) (3)
+
+// сам класс
+// родители
+// поля (строится граф объектов)
+// версия класса
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

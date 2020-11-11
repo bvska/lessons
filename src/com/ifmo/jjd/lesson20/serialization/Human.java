@@ -1,6 +1,10 @@
 package com.ifmo.jjd.lesson20.serialization;
 
-public class Human  {
+import java.io.Serializable;
+
+// Human - Serializable класс, соответственно все его потомки -
+// Serializable классы
+public class Human implements Serializable {
     protected String name = "Человек";
     protected int age;
 
