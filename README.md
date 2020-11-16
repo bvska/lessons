@@ -284,7 +284,7 @@ enum Status с необходимыми константами нужно соз
 1. [Lambda](src/com/ifmo/jjd/lesson22)
 
 ### Домашнее задание:
-1. Отработать написание лямбда (написать по 2-3 реализации) для: Predicate, Function, UnaryOperator, BinaryOperator, Consumer
+1. Отработать написание лямбда (написать по 2 реализации) для: Predicate, Function, UnaryOperator, BinaryOperator, Consumer
 2. Переписать компараторы из lesson15/hw с использованием синтаксиса лямбд
 3. Написать реализацию метода public List<Course> filtered(Predicate<Course> filter) класса University. 
 4. Использовать реализованный в п.3 метод для получения списков курсов: 
