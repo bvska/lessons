@@ -1,5 +1,12 @@
 package com.ifmo.jjd.lesson23;
 
+import com.ifmo.jjd.lesson22.Course;
+
+import java.util.*;
+import java.util.function.Function;
+import java.util.stream.Collectors;
+import java.util.stream.Stream;
+
 public class StreamAPI {
     public static void main(String[] args) {
 /*
@@ -70,5 +77,126 @@ public class StreamAPI {
              * min | max принимают на вход компаратор, возвращают минимальный / максимальный элемент потока в Optional контейнере
              * collect принимает на вход Collector, возвращает коллекцию или мапу
          */
+
+        Stream<Integer> integerStream = Stream.of(-504, -312, 12, -1, -45, 0, 0, 23, -9, 1000);
+        integerStream.filter(num -> num < 0) //  в Stream останутся только отрицательные элементы
+                .map(num -> num * num)
+                .limit(3) // вернет новый поток, в который войдут 3 первые элемента предыдущего потока
+                .forEach(System.out::println);
+
+        integerStream = Stream.of(-6, -6, 12, 89, 90, 0, 12, 78, 89);
+        integerStream.distinct() // в новый поток попадут только уникальные элементы
+                .sorted() // сортирует в натуральном порядке
+                .forEach(System.out::println);
+
+        // anyMatch - хотя бы один | allMatch - каждый | noneMatch - ни один
+        integerStream = Stream.of(78, 811, 903, -133, 0);
+        System.out.println(integerStream.anyMatch(num -> num == 0));
+        integerStream = Stream.of(78, 811, 903, -133, 0);
+        System.out.println(integerStream.allMatch(num -> num > 300));
+        integerStream = Stream.of(78, 811, 903, -133, 0);
+        System.out.println(integerStream.noneMatch(num -> num > 1000));
+
+        // findFirst - вернет первый элемент в Optional контейнере
+        // findAny - вернет произвольный элемент в Optional контейнере
+
+        // Optional - null safe container, J8
+
+        String[] colors = {"white", "black", "green", "yellow", "brown"};
+
+        String firstColor = Arrays.stream(colors)
+                .skip(1)
+                .filter(color -> color.startsWith("b"))
+                .findFirst().orElse("default"); // .get()
+
+        System.out.println(firstColor);
+
+        boolean isPresent = Arrays.stream(colors).findFirst().isPresent();
+
+        // import ...lesson22.Course;
+        ArrayList<Course> courses = new ArrayList<>();
+        courses.add(Course.getInstance());
+        courses.add(Course.getInstance());
+        courses.add(Course.getInstance());
+        courses.add(Course.getInstance());
+        courses.add(Course.getInstance());
+
+        System.out.println(courses);
+
+        // min | max
+
+        Course minByPrice = courses.stream() // поток из элементов коллекции
+                .min(Comparator.comparing(Course::getPrice))
+                .orElse(Course.getInstance());
+
+
+        System.out.println(minByPrice);
+
+        // max максимальный по продолжительности
+        Course maxDuration = courses.stream()
+                .min(Comparator.comparing(Course::getDuration).reversed())
+//                .max(Comparator.comparing(Course::getDuration))
+                .orElse(Course.getInstance());
+
+        System.out.println(maxDuration);
+
+        // Получим массив курсов дороже 20000
+        Course[] coursesArr = courses.stream()
+                .filter(course -> course.getPrice() > 20000)
+                .toArray(Course[]::new); // ссылка на конструктор массива Course[]
+                // toArray() Object[]
+        System.out.println(Arrays.toString(coursesArr));
+
+        // увеличим стоимость курсов продолжительностью < 3 на 5000,
+        // получим List
+        List<Course> courseList = courses.stream()
+                .filter(course -> course.getDuration() < 3)
+                .peek(course -> course.setPrice(course.getPrice() + 5000)) // изменение
+                .collect(Collectors.toList()); // Collectors.toSet()
+
+
+        ArrayList<Course> courseArrayList = courses.stream()
+                .distinct()
+                .sorted(Comparator.comparing(Course::getName))
+                .collect(Collectors.toCollection(ArrayList::new)); // ссылка на конструктор любой коллекции
+
+        // получим мапу
+        colors = new String[]{"white", "blue", "black", "green", "red", "white"};
+
+        Map<String, Integer> mapFromArr = Arrays.stream(colors)
+                .collect(Collectors.toMap(
+                        Function.identity(), // Function elem -> elem  ключи
+                        String::length, // Function elem -> elem.length() значения
+                        Integer::sum // BinaryOperator (val1, val2) -> val1 + val2
+                ));
+        System.out.println(mapFromArr);
+
+
+        // flatMap | map
+        String[][] strings = {
+                {"45", "-7", "89", "10", "89"},
+                {"12", "122", "65", "122"},
+                {"67", "89", "-1", "200", "3"},
+        };
+
+        String[][] stringsMap = Arrays.stream(strings)
+                .map(arr -> Arrays.stream(arr).distinct().sorted().toArray(String[]::new))
+                .toArray(String[][]::new);
+        System.out.println(Arrays.deepToString(stringsMap));
+
+        String[] strings1FlatMap = Arrays.stream(strings)
+                .flatMap(arr -> Arrays.stream(arr).distinct().sorted())
+                .sorted() //
+                .toArray(String[]::new);
+        System.out.println(Arrays.deepToString(strings1FlatMap));
+
+
+
+
+
+
+
+
     }
+
 }
