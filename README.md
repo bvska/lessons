@@ -298,6 +298,14 @@ enum Status с необходимыми константами нужно соз
 5. Используя метод foreach увеличить стоимость всех курсов на 10000. 
 
 
+Занятие 23
+1. [Stream API](src/com/ifmo/jjd/lesson23)
+
+### Домашнее задание:
+1. [Задание топ 10 слов](src/com/ifmo/jjd/lesson23/task/TopTenWords.java)
+2. [Задание Ученики](src/com/ifmo/jjd/lesson23/task/pupils/PupilTask.java)
+3. [Задание Транзакции](src/com/ifmo/jjd/lesson23/task/tansactions/TransactionsTask.java)
+
 ## Курсовые
 1. [Базовый синтаксис и семантика языка](exams/first-fitness.txt) срок сдачи 19 октября 2020 до 18:40
 
