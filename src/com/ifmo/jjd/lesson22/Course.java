@@ -32,6 +32,26 @@ public class Course {
     }
 
     @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (!(o instanceof Course)) return false;
+
+        Course course = (Course) o;
+
+        if (price != course.price) return false;
+        if (duration != course.duration) return false;
+        return name != null ? name.equals(course.name) : course.name == null;
+    }
+
+    @Override
+    public int hashCode() {
+        int result = price;
+        result = 31 * result + duration;
+        result = 31 * result + (name != null ? name.hashCode() : 0);
+        return result;
+    }
+
+    @Override
     public String toString() {
         return "Course{" +
                 "price=" + price +
