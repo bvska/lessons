@@ -6,7 +6,8 @@ public class SomeAccount {
     public int getBalance() {
         return balance;
     }
-    public void upBalance(int count) {
+    // поток блокирует монитор объекта метод которого выполняется
+    public synchronized void upBalance(int count) {
         balance += count;
     }
 }

@@ -13,5 +13,21 @@ public class Application {
         for (int i = 0; i < 10; i++) {
             tasks.add(new IncrementTask(account));
         }
+
+        for (IncrementTask task: tasks){
+            task.start();
+        }
+
+        for (IncrementTask task: tasks){
+            try {
+                task.join();
+            } catch (InterruptedException e) {
+                e.printStackTrace();
+            }
+        }
+
+
+        System.out.println("Balance: " + account.getBalance());//
+
     }
 }

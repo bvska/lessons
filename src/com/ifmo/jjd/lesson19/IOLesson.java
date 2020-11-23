@@ -203,8 +203,12 @@ class SomeInputDecorator extends FilterInputStream {
 
     @Override
     public int read(byte[] b) throws IOException {
-        // расшифровка полученных данных
-        return in.read(b); // read вернет количество прочитанных байт
+        int data = in.read(b);
+        for (int i = 0; i < b.length; i++) {
+            // b[i] = расшифровка
+        }
+
+        return data; // read вернет количество прочитанных байт
     }
 }
 
