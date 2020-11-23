@@ -2,6 +2,9 @@ package com.ifmo.jjd.multithreading.lesson25;
 
 import com.ifmo.jjd.multithreading.lesson25.sync.IncrementTask;
 import com.ifmo.jjd.multithreading.lesson25.sync.SomeAccount;
+import com.ifmo.jjd.multithreading.lesson25.waitnotify.GetThread;
+import com.ifmo.jjd.multithreading.lesson25.waitnotify.Library;
+import com.ifmo.jjd.multithreading.lesson25.waitnotify.PutThread;
 
 import java.util.ArrayList;
 
@@ -27,7 +30,14 @@ public class Application {
         }
 
 
-        System.out.println("Balance: " + account.getBalance());//
+        System.out.println("Balance: " + account.getBalance());
+
+
+        Library library = new Library();
+        new Thread(new PutThread(library)).start();
+        new Thread(new PutThread(library)).start();
+        new Thread(new PutThread(library)).start();
+        new Thread(new GetThread(library)).start();
 
     }
 }

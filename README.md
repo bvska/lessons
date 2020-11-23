@@ -306,6 +306,28 @@ enum Status с необходимыми константами нужно соз
 2. [Задание Ученики](src/com/ifmo/jjd/lesson23/task/pupils/PupilTask.java)
 3. [Задание Транзакции](src/com/ifmo/jjd/lesson23/task/tansactions/TransactionsTask.java)
 
+
+Занятие 24
+1. [Многопоточность 1](src/com/ifmo/jjd/multithreading/lesson24)
+
+Занятие 25
+1. [Многопоточность. synchronized](src/com/ifmo/jjd/multithreading/lesson25/sync)
+2. [Многопоточность. wait, notify](src/com/ifmo/jjd/multithreading/lesson25/waitnotify)
+
+### Домашнее задание:
+1. Задание 'Топ N слов'
+
+        Основной поток читает из файла текст, разбивает его на несколько частей
+        Каждый поток получает свою часть, считает количество слов, переносит результат в общую мапу
+        Основной поток выводит результат: топ N слов
+        
+        количество потоков = Runtime.getRuntime().availableProcessors();
+        
+2. [Задание Transaction](src/com/ifmo/jjd/multithreading/lesson25/task)
+        
+        Написать реализацию метода run класса Transaction
+
+
 ## Курсовые
 1. [Базовый синтаксис и семантика языка](exams/first-fitness.txt) срок сдачи 19 октября 2020 до 18:40
 
