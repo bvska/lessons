@@ -34,6 +34,8 @@ public class Student {
         this.name = name;
     }
 
+    // к классу высшего уровня нельзя применять static
+    // область видимости внутренних определяется модификатором доступа
     public static class Exam {
         private static final int MAX_MARK = 5;
         private String examName;
@@ -60,6 +62,8 @@ public class Student {
             this.mark = mark;
         }
 
+        // из static классы мы можем обращаться только к статическим полям и методам
+        // внешнего класса, в том числе private
         public void examInfo(){
             System.out.println(
 //                     "Студент: "+ name + "; " +
