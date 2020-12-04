@@ -2,7 +2,9 @@ package com.ifmo.jjd.lesson23;
 
 import com.ifmo.jjd.lesson22.Course;
 
+import java.io.IOException;
 import java.util.*;
+import java.util.function.Consumer;
 import java.util.function.Function;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
@@ -190,13 +192,39 @@ public class StreamAPI {
                 .toArray(String[]::new);
         System.out.println(Arrays.deepToString(strings1FlatMap));
 
-
-
-
-
-
-
+        integerStream = Stream.of(-6, -6, 12, 89, 90, 0, 12, 78, 89);
+        //integerStream.forEach(integer -> System.out.println(100/integer));
+//        integerStream.forEach(integer -> {
+//            try {
+//                System.out.println(100 / integer);
+//            } catch (ArithmeticException e){
+//                e.printStackTrace();
+//            }
+//        });
+        integerStream.forEach(wrapper(integer -> System.out.println("div" + (100 / integer))));
+        integerStream.forEach(wrapper(integer -> {
+            try {
+                someVoid(integer);
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+        }));
 
     }
+
+    private static void someVoid(int num) throws IOException {    }
+
+    private static Consumer<Integer> wrapper(Consumer<Integer> consumer) {
+        return integer -> {
+             try {
+                 consumer.accept(integer);
+             } catch (ArithmeticException e){
+                 System.out.println("ArithmeticException");
+             }
+        };
+    }
+
+
+
 
 }
