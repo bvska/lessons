@@ -7,6 +7,7 @@ import com.ifmo.jjd.patterns.decorator.LevelDecorator;
 import com.ifmo.jjd.patterns.decorator.Logger;
 import com.ifmo.jjd.patterns.observer.Observer;
 import com.ifmo.jjd.patterns.observer.StateClass;
+import com.ifmo.jjd.patterns.singleton.Singleton;
 
 import java.io.BufferedReader;
 import java.io.IOException;
@@ -103,6 +104,14 @@ public class Patterns {
             if (a == 0) break;
             stateClass.changeState(a);
         }
+
+
+        Singleton singleton = Singleton.getInstance(100);
+        singleton.setNum(200);
+
+        Singleton singleton2 = Singleton.getInstance(100);
+        System.out.println(singleton2.getNum()); // 0 : 200
+
 
     }
 }
