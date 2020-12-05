@@ -1,6 +1,9 @@
 package com.ifmo.jjd.patterns;
 
 import com.ifmo.jjd.patterns.builder.NutritionFacts;
+import com.ifmo.jjd.patterns.chain.Chain;
+import com.ifmo.jjd.patterns.chain.Handler;
+import com.ifmo.jjd.patterns.chain.IHandler;
 import com.ifmo.jjd.patterns.decorator.DateDecorator;
 import com.ifmo.jjd.patterns.decorator.ILogger;
 import com.ifmo.jjd.patterns.decorator.LevelDecorator;
@@ -113,6 +116,17 @@ public class Patterns {
         System.out.println(singleton2.getNum()); // 0 : 200
 
 
+        // цепочка
+        IHandler handler = Chain.getHandlerChain();
+
+        handler.handleRequest("данные в консоль", Handler.Priority.MIDDLE);
+
+        handler.handleRequest("данные в файл", Handler.Priority.HIGH);
+
+        handler.handleRequest("данные в консоль", Handler.Priority.MIDDLE);
+
+        handler.handleRequest("данные в консоль", Handler.Priority.LOW);
+        handler.handleRequest("данные в бд", Handler.Priority.URGENT);
     }
 }
 
